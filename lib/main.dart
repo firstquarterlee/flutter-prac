@@ -16,21 +16,13 @@ class MyApp extends StatelessWidget {
           elevation: 50, //그림자
           centerTitle: false, //왼쪽 정렬
         ),
-        body: Text('안녕'),
-        bottomNavigationBar: BottomAppBar(
-          child: SizedBox(
-          height: 100,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(Icons.phone),
-              Icon(Icons.message),
-              Icon(Icons.contact_page),
-            ],
+        body: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+              width: 50, height: 50, color: Colors.blue,
           ),
-         ),
         ),
-      )
+      ),
     );
   }
 }
