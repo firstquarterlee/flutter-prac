@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,18 +12,37 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('앱임'),
-          elevation: 50, //그림자
-          centerTitle: false, //왼쪽 정렬
-        ),
-        body: Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-              width: 50, height: 50, color: Colors.blue,
+        appBar: AppBar(),
+        body: Container(
+          height: 100,
+          padding: EdgeInsets.all(3),
+          child: Row(
+            children: [
+              Image.asset('camera.jpg', width: 150,),
+              Container(
+                width: 300,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('카메라팝니다'),
+                    Text('금호동 3가'),
+                    Text('7000원'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(Icons.favorite),
+                        Text('4'),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
-        ),
+        )
+
       ),
     );
+
   }
 }
