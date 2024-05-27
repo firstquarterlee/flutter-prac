@@ -2,47 +2,53 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+
+
+
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var a = 1;
+  var name = ['김영숙', '홍길동', '피자집'];
+
   @override
   Widget build(BuildContext context) {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(),
-        body: Container(
-          height: 100,
-          padding: EdgeInsets.all(3),
-          child: Row(
-            children: [
-              Image.asset('camera.jpg', width: 150,),
-              Container(
-                width: 300,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('카메라팝니다'),
-                    Text('금호동 3가'),
-                    Text('7000원'),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Icon(Icons.favorite),
-                        Text('4'),
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        )
-
+        floatingActionButton: FloatingActionButton(
+            child: Text(a.toString()),
+            onPressed: (){
+              print(a);
+              setState(() {
+                a++;
+              });
+            },
+      ),
+        appBar: AppBar( title: Text('연락처앱'),),
+        body: ListView.builder(
+            itemCount: 3,
+            itemBuilder: (c, i){
+              print(i);
+              return ListTile(
+                leading: Image.asset('profile.png'),
+                title: Text('홍길동'),
+              );
+            },
+        ),
       ),
     );
 
+
+
   }
 }
+
