@@ -24,15 +24,6 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-            child: Text(a.toString()),
-            onPressed: (){
-              print(a);
-              setState(() {
-                a++;
-              });
-            },
-      ),
         appBar: AppBar( title: Text('연락처앱'),),
         body: ListView.builder(
             itemCount: 3,
@@ -40,7 +31,7 @@ class _MyAppState extends State<MyApp> {
               print(i);
               return ListTile(
                 leading: Image.asset('profile.png'),
-                title: Text('홍길동'),
+                title: Text(name[i]),
               );
             },
         ),
